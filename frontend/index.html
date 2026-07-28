@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COFFIG</title>
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+<body>
+
+<div class="particles"></div>
+
+<button class="menu-btn" id="menuBtn">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+<div class="sidebar" id="sidebar">
+
+  <div class="logo">COFFIG</div>
+
+  <div class="menu">
+
+    <a href=""
+    class="menu-link"
+    data-section="home">
+      <i class="fa-solid fa-house"></i>
+      Home
+    </a>
+
+    <a href=""
+    class="menu-link"
+    data-section="products">
+      <i class="fa-solid fa-coffee"></i>
+      Drinks
+    </a>
+
+    <a href=""
+    class="menu-link"
+    data-section="cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      Cart
+    </a>
+
+    <a href=""
+    class="menu-link"
+    data-section="orders">
+      <i class="fa-solid fa-receipt"></i>
+      Orders
+    </a>
+
+    <a href=""
+    class="menu-link"
+    id="adminNavLink"
+    style="display:none;"
+    data-section="admin">
+      <i class="fa-solid fa-user-shield"></i>
+      Admin
+    </a>
+
+    <a href=""
+    class="menu-link"
+    data-section="account">
+      <i class="fa-solid fa-user"></i>
+      Account
+    </a>
+    
+  </div>
+
+</div>
+
+<div class="main-content">
+
+  <div class="section" id="admin">
+
+    <div class="topbar">
+      <h1>Admin Dashboard</h1>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h2 id="totalUsers">0</h2>
+        <p>Total Users</p>
+      </div>
+
+      <div class="card">
+        <h2 id="totalOrders">0</h2>
+        <p>Total Orders</p>
+      </div>
+
+      <div class="card">
+        <h2 id="totalRevenue">$0</h2>
+        <p>Total Revenue</p>
+      </div>
+
+    </div>
+
+    <h3 class="admin-section-title">Recent Orders</h3>
+
+    <div class="orders">
+      <table>
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Customer</th>
+            <th>Total</th>
+            <th>Payment</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="adminOrders"></tbody>
+      </table>
+    </div>
+
+    <h3 class="admin-section-title">Users</h3>
+
+    <div class="orders">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Joined</th>
+          </tr>
+        </thead>
+        <tbody id="adminUsers"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="section" id="home">
+
+    <div class="hero">
+
+      <div class="hero-content">
+
+        <h1>COFFIG</h1>
+
+        <p>Drinks For Fig</p>
+
+        <button id="heroOrderBtn">
+          ORDER NOW
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section" id="products">
+
+    <div class="topbar">
+      <h1>Products</h1>
+    </div>
+    <input
+    type="text"
+    id="searchProduct"
+    placeholder="Search products...">
+
+    <div class="cards" id="productContainer"></div>
+
+  </div>
+
+  <div class="section" id="orders">
+
+    <div class="topbar">
+      <h1>Order History</h1>
+    </div>
+
+    <div class="orders">
+      <table>
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Payment</th>
+          </tr>
+        </thead>
+
+        <tbody id="orderHistory">
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+  <div class="section" id="cart">
+
+    <div class="topbar">
+
+      <h1>Cart</h1>
+
+      <h2>$<span id="cartTotal">0</span></h2>
+
+    </div>
+
+    <div class="orders">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="cartItems"></tbody>
+
+      </table>
+
+      <div class="payment-methods">
+
+        <button class="payment-btn active"
+        data-payment="ABA PayWay">
+          ABA PayWay
+        </button>
+
+        <button class="payment-btn"
+        data-payment="KHQR">
+          KHQR
+        </button>
+
+        <button class="payment-btn"
+        data-payment="Credit Card">
+          Credit Card
+        </button>
+
+      </div>
+
+      <button class="checkout-btn"
+      id="checkoutBtn">
+        CHECKOUT
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="section" id="account">
+
+    <div class="login-box" id="loginBox">
+
+      <h1 id="formTitle">LOGIN</h1>
+
+      <input
+      type="text"
+      id="username"
+      placeholder="Username"
+      style="display:none;">
+
+      <input
+      type="email"
+      id="loginEmail"
+      placeholder="Email">
+
+      <input
+      type="password"
+      id="loginPassword"
+      placeholder="Password">
+
+      <button class="auth-btn" id="primaryAuthBtn">
+        LOGIN
+      </button>
+
+      <button class="auth-btn" id="toggleAuthBtn">
+        REGISTER
+      </button>
+
+      <p class="field-error" id="authError"></p>
+
+    </div>
+
+    <div class="account-box" id="accountBox" style="display:none;">
+
+      <div class="avatar-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+
+      <h2 id="accountName"></h2>
+
+      <p id="accountEmail"></p>
+
+      <button class="logout-btn" id="logoutBtn">
+        LOGOUT
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
