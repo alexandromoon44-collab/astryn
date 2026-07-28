@@ -396,7 +396,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // --- Static frontend ------------------------------------------------------
-const frontendDir = path.join(__dirname, "../frontend");
+const frontendDir = path.join(__dirname, "frontend");
 app.use(express.static(frontendDir));
 
 app.get("/", (req, res) => {
